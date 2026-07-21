@@ -25,7 +25,7 @@ model.fit(X_train, y_train)
 
 probs = model.predict_proba(X_test)[:, 1]
 
-threshold = 0.7
+threshold = 0.5
 
 y_pred = (probs >= threshold).astype(int)
 
@@ -45,4 +45,4 @@ importance = pd.Series(
 
 print(importance.sort_values(ascending=False))
 joblib.dump(model, "models/random_forest_hikari.pkl")
-model = joblib.load("models/random_forest_hikari.pkl")
+
